@@ -85,14 +85,14 @@ nav ul a:hover { color: var(--text); }
   margin: 32px 0;
 }
 
-.name-th {
+.name-first {
   font-size: clamp(72px, 13vw, 150px);
   font-weight: 300;
   letter-spacing: -4px;
   color: var(--muted);
 }
 
-.name-en {
+.name-last {
   font-size: clamp(72px, 13vw, 150px);
   font-weight: 900;
   letter-spacing: -5px;
@@ -150,16 +150,16 @@ nav ul a:hover { color: var(--text); }
 /* ── ABOUT ───────────────────────────── */
 .about-body {
   display: grid;
-  grid-template-columns: 1fr 260px;
-  gap: 80px;
+  grid-template-columns: 1fr 220px;
+  gap: 100px;
   align-items: start;
 }
 
 .about-big {
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 400;
-  line-height: 1.55;
-  margin-bottom: 24px;
+  line-height: 1.65;
+  margin-bottom: 28px;
   color: var(--text);
 }
 
@@ -171,7 +171,7 @@ nav ul a:hover { color: var(--text); }
 .about-main p {
   font-size: 14px;
   color: var(--muted);
-  line-height: 1.85;
+  line-height: 2;
 }
 
 .about-main strong {
@@ -208,9 +208,11 @@ nav ul a:hover { color: var(--text); }
 
 .skill-group {
   display: grid;
-  grid-template-columns: 110px 1fr;
-  gap: 24px;
+  grid-template-columns: 130px 1fr;
+  gap: 32px;
   align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
 }
 
 .skill-group-label {
@@ -250,16 +252,16 @@ nav ul a:hover { color: var(--text); }
 .project-item {
   display: grid;
   grid-template-columns: 56px 1fr 36px;
-  gap: 28px;
+  gap: 32px;
   align-items: center;
-  padding: 28px 0;
+  padding: 32px 0;
   border-bottom: 1px solid var(--line);
   transition: padding-left 0.25s;
 }
 
 .project-item:first-child { border-top: 1px solid var(--line); }
 
-.project-item:hover { padding-left: 8px; }
+.project-item:hover { padding-left: 10px; }
 
 .project-num {
   font-size: 10px;
@@ -280,8 +282,8 @@ nav ul a:hover { color: var(--text); }
 .project-info p {
   font-size: 13px;
   color: var(--muted);
-  margin-bottom: 10px;
-  line-height: 1.6;
+  margin-bottom: 12px;
+  line-height: 1.75;
 }
 
 .project-tags {
