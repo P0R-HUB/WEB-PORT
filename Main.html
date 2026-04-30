@@ -1,73 +1,174 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Por Diewtrakul — Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- NAV -->
-  <nav>
-    <div class="logo">MYPORT</div>
+  <nav id="navbar">
+    <div class="logo">POR.</div>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Work</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
+    <a href="#contact" class="nav-btn">Hire Me</a>
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
-    <h1>PORTFOLIO.</h1>
-    <p>Developer / Full Stack </p>
-    <a href="#" class="btn">View Work</a>
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <p class="hero-sub">Hi, I'm</p>
+      <h1>Por <span class="gradient-text">Diewtrakul</span></h1>
+      <p class="hero-role">Business Analyst &nbsp;·&nbsp; System Analyst &nbsp;·&nbsp; Full Stack Developer</p>
+      <p class="hero-desc">2nd Year · Digital Industry Integration · CAMT, CMU</p>
+      <div class="hero-btns">
+        <a href="#work" class="btn-primary">View Work</a>
+        <a href="#contact" class="btn-secondary">Contact Me</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="orb"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="section-inner">
+      <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>ผมชื่อ พร เดี่ยวตระกูล นักศึกษาปี 2 สาขา Digital Industry Integration วิทยาลัยศิลปะ สื่อ และเทคโนโลยี (CAMT) มหาวิทยาลัยเชียงใหม่</p>
+          <p>I'm passionate about bridging business needs with technical solutions — whether it's analyzing systems, designing processes, or building full-stack applications. I enjoy turning complex problems into clean, practical solutions.</p>
+          <p>Currently looking for opportunities as a <strong>Business Analyst</strong>, <strong>System Analyst</strong>, or <strong>Full Stack Developer</strong>.</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-num gradient-text">2nd</span>
+            <span class="stat-label">Year at CMU</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num gradient-text">CAMT</span>
+            <span class="stat-label">Digital Industry Integration</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num gradient-text">BA / SA</span>
+            <span class="stat-label">Target Role</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills" id="skills">
+    <div class="section-inner">
+      <h2 class="section-title">Skills &amp; <span class="gradient-text">Tech</span></h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">☕</div>
+          <h3>Java</h3>
+          <p>OOP, Data Structures, Algorithms</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🌐</div>
+          <h3>HTML / CSS</h3>
+          <p>Responsive Design, Modern UI</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🔀</div>
+          <h3>Git / GitHub</h3>
+          <p>Version Control, Collaboration</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">📊</div>
+          <h3>Business Analysis</h3>
+          <p>Requirements Gathering, Process Design</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🗂️</div>
+          <h3>System Analysis</h3>
+          <p>System Design, Documentation</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🚀</div>
+          <h3>Deployment</h3>
+          <p>Vercel, Web Hosting</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- WORK -->
-  <section class="work">
-    <h2>Featured Work</h2>
+  <section class="work" id="work">
+    <div class="section-inner">
+      <h2 class="section-title">Featured <span class="gradient-text">Work</span></h2>
+      <div class="projects-grid">
 
-    <div class="grid">
-      
-      <div class="card">
-        <div class="overlay">
-          <h3>Project 1</h3>
-          <a href="#">View</a>
+        <div class="project-card">
+          <div class="project-tag">Java · OOP</div>
+          <h3>PetClinic System</h3>
+          <p>A Java OOP-based pet clinic management system with interfaces for grooming, training, and statistics. Demonstrates clean class hierarchy and interface design.</p>
+          <a href="https://github.com/P0R-HUB" target="_blank" class="project-link">View on GitHub →</a>
         </div>
-      </div>
 
-      <div class="card">
-        <div class="overlay">
-          <h3>Project 2</h3>
-          <a href="#">View</a>
+        <div class="project-card">
+          <div class="project-tag">Java · DSA</div>
+          <h3>Stack &amp; Queue</h3>
+          <p>Custom implementation of Stack and Queue data structures in Java with advanced operations including peek, isEmpty, and dynamic resizing.</p>
+          <a href="https://github.com/P0R-HUB/Stack-Queue" target="_blank" class="project-link">View on GitHub →</a>
         </div>
-      </div>
 
-      <div class="card">
-        <div class="overlay">
-          <h3>Project 3</h3>
-          <a href="#">View</a>
+        <div class="project-card">
+          <div class="project-tag">Java · DSA</div>
+          <h3>Linked List</h3>
+          <p>Java implementation of Linked List with basic, enhanced, and third-node operations — showcasing pointer manipulation and dynamic data structure management.</p>
+          <a href="https://github.com/P0R-HUB/Linked-List" target="_blank" class="project-link">View on GitHub →</a>
         </div>
-      </div>
 
-      <div class="card">
-        <div class="overlay">
-          <h3>Project 4</h3>
-          <a href="#">View</a>
+        <div class="project-card featured">
+          <div class="project-tag">HTML · CSS · Vercel</div>
+          <h3>Web Portfolio</h3>
+          <p>Personal portfolio website built with HTML and CSS, featuring a dark theme, responsive layout, and deployed live on Vercel.</p>
+          <a href="https://web-port-sandy.vercel.app" target="_blank" class="project-link">Live Demo →</a>
         </div>
-      </div>
 
+      </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section class="contact">
-    <h2>Contact</h2>
-    <p>Email: por_di@cmu.ac.th</p>
-    <p>Phone: 080-843-7795</p>
-    <p>GitHub: <a href="https://github.com/P0R-HUB" target="_blank">P0R-HUB</a></p>
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
+      <p class="contact-sub">Open to BA / SA / Full Stack opportunities — feel free to reach out anytime.</p>
+      <div class="contact-cards">
+        <a href="mailto:por_di@cmu.ac.th" class="contact-card">
+          <span class="contact-icon">✉️</span>
+          <span>por_di@cmu.ac.th</span>
+        </a>
+        <a href="tel:0808437795" class="contact-card">
+          <span class="contact-icon">📱</span>
+          <span>080-843-7795</span>
+        </a>
+        <a href="https://github.com/P0R-HUB" target="_blank" class="contact-card">
+          <span class="contact-icon">🐙</span>
+          <span>P0R-HUB</span>
+        </a>
+      </div>
+    </div>
   </section>
 
+  <footer>
+    <p>© 2025 Por Diewtrakul &nbsp;·&nbsp; CAMT, CMU</p>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
