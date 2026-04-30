@@ -32,7 +32,7 @@ var initCopy = function() {
     el.addEventListener('click', function(e) {
       var val = this.getAttribute('data-copy');
       var href = this.getAttribute('href') || '';
-      if (href.startsWith('mailto:') || href.startsWith('tel:')) e.preventDefault();
+      if (href.startsWith('tel:')) e.preventDefault();
       navigator.clipboard.writeText(val).then(function() {
         showToast('Copied: ' + val);
       });
