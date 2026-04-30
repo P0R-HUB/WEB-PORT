@@ -2,13 +2,13 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg:       #F5F4F0;
+  --bg:       #F7F8FC;
   --surface:  #FFFFFF;
-  --text:     #1a1917;
-  --muted:    #9a9890;
-  --soft:     #e8e6e1;
-  --accent:   #5b5bd6;
-  --accent-l: #eeeeff;
+  --text:     #1A1C2A;
+  --muted:    #8A8FA8;
+  --soft:     #E2E5EF;
+  --accent:   #0F1830;
+  --accent-l: #BCC8F0;
 }
 
 html { scroll-behavior: smooth; }
