@@ -378,6 +378,12 @@ nav ul a:hover { color: var(--text); }
   gap: 20px;
 }
 
+.work-loading {
+  color: var(--muted);
+  font-size: 14px;
+  grid-column: 1 / -1;
+}
+
 .work-card {
   background: var(--bg);
   border-radius: 20px;
