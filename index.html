@@ -5,9 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Por Diewtrakul</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- SVG gooey filter (used by hero blobs) -->
+  <svg class="svg-defs" width="0" height="0" aria-hidden="true">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="18" result="blur"/>
+        <feColorMatrix in="blur" mode="matrix"
+          values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -10" result="goo"/>
+        <feBlend in="SourceGraphic" in2="goo"/>
+      </filter>
+    </defs>
+  </svg>
 
   <!-- NAV -->
   <nav>
@@ -29,14 +43,21 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-tag">Seeking Internship · 2025</div>
-    <h1 class="hero-title">Por<br><span>Diewtrakul</span></h1>
-    <p class="hero-sub">Business Analyst · System Analyst · Full Stack Developer</p>
-    <p class="hero-desc">2nd Year Student · Digital Industry Integration · CAMT, CMU</p>
-    <div class="hero-actions">
-      <a href="#work" class="btn-main">View Work</a>
-      <a href="#contact" class="btn-ghost">Contact</a>
-      <a href="#" class="btn-ghost" style="opacity:0.4; cursor:not-allowed;">Resume ↓</a>
+    <div class="hero-blobs" aria-hidden="true">
+      <span class="blob blob-1"></span>
+      <span class="blob blob-2"></span>
+    </div>
+    <div class="hero-content">
+      <div class="hero-tag">Seeking Internship · 2026</div>
+      <h1 class="hero-title">Por<br><span>Diewtrakul</span></h1>
+      <p class="hero-sub">Business Analyst · System Analyst · Full Stack Developer</p>
+      <p class="hero-desc">2nd Year Student · Digital Industry Integration · CAMT, CMU</p>
+      <div class="hero-actions">
+        <a href="#work" class="btn-main">View Work</a>
+        <a href="#contact" class="btn-ghost">Contact</a>
+        <!-- Resume: ใส่ลิงก์ PDF ที่ href ทีหลังได้เลย (เช่น resume.pdf) -->
+        <a href="#" class="btn-ghost btn-resume" data-resume-pending aria-disabled="true">Resume ↓</a>
+      </div>
     </div>
   </section>
 
@@ -135,20 +156,20 @@
           <span class="contact-type">Phone</span>
           <span class="contact-val">080-843-7795 ↗</span>
         </a>
-        <a href="https://github.com/P0R-HUB" target="_blank" class="contact-row" data-copy="https://github.com/P0R-HUB">
+        <a href="https://github.com/P0R-HUB" target="_blank" rel="noopener" class="contact-row" data-copy="https://github.com/P0R-HUB">
           <span class="contact-type">GitHub</span>
           <span class="contact-val">P0R-HUB ↗</span>
         </a>
-        <a href="#" class="contact-row" style="opacity:0.4; cursor:not-allowed;">
+        <a href="https://www.linkedin.com/in/por-diewtrakul-378837418/" target="_blank" rel="noopener" class="contact-row">
           <span class="contact-type">LinkedIn</span>
-          <span class="contact-val">— ใส่ link ทีหลัง</span>
+          <span class="contact-val">por-diewtrakul ↗</span>
         </a>
       </div>
     </div>
   </section>
 
   <footer>
-    <span>© 2025 Por Diewtrakul</span>
+    <span>© 2026 Por Diewtrakul</span>
     <span>CAMT · CMU</span>
   </footer>
 
