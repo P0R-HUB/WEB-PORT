@@ -170,28 +170,64 @@ var renderWorkCards = function(grid, projects) {
   }
 };
 
+// Collab / org repos (full name "owner/repo") to feature alongside own repos.
+// Must be public — the unauthenticated API can't read private repos.
+// Optional `overrides` patch fields the API leaves blank (e.g. missing description).
+var EXTRA_REPOS = [
+  {
+    name: 'PreturnPRO/dii-camt-showprogroup',
+    overrides: {
+      name: 'DII CAMT ShowPro',
+      description: 'Group project — management system for DII CAMT, CMU. Full-stack build in TypeScript.'
+    }
+  }
+];
+
+var fetchJson = function(url) {
+  return fetch(url, { headers: { 'Accept': 'application/vnd.github+json' } })
+    .then(function(res) {
+      if (!res.ok) throw new Error('GitHub API ' + res.status);
+      return res.json();
+    });
+};
+
 var fetchPortfolioRepos = function() {
   var grid = document.getElementById('work-grid');
   if (!grid) return;
 
-  fetch('https://api.github.com/users/P0R-HUB/repos?per_page=100&sort=pushed', {
-    headers: { 'Accept': 'application/vnd.github+json' }
-  })
-  .then(function(res) {
-    if (!res.ok) throw new Error('GitHub API ' + res.status);
-    return res.json();
-  })
-  .then(function(repos) {
-    if (!Array.isArray(repos)) throw new Error('Unexpected response');
-    var portfolio = repos.filter(function(r) {
-      return Array.isArray(r.topics) && r.topics.includes('portfolio');
-    });
-    renderWorkCards(grid, portfolio.length ? portfolio : FALLBACK_PROJECTS);
-  })
-  .catch(function() {
-    // API down / rate limited — show curated fallback instead of an empty grid
-    renderWorkCards(grid, FALLBACK_PROJECTS);
+  // Own repos tagged with the "portfolio" topic (empty list on failure)
+  var ownReq = fetchJson('https://api.github.com/users/P0R-HUB/repos?per_page=100&sort=pushed')
+    .then(function(repos) {
+      if (!Array.isArray(repos)) throw new Error('Unexpected response');
+      return repos.filter(function(r) {
+        return Array.isArray(r.topics) && r.topics.includes('portfolio');
+      });
+    })
+    .catch(function() { return []; });
+
+  // Featured collab repos fetched individually (null on failure, filtered out),
+  // with any overrides merged over the live API data.
+  var extraReqs = EXTRA_REPOS.map(function(entry) {
+    return fetchJson('https://api.github.com/repos/' + entry.name)
+      .then(function(repo) {
+        var ov = entry.overrides || {};
+        Object.keys(ov).forEach(function(k) { repo[k] = ov[k]; });
+        return repo;
+      })
+      .catch(function() { return null; });
   });
+
+  Promise.all([ownReq].concat(extraReqs))
+    .then(function(results) {
+      var own = results[0] || [];
+      var extras = results.slice(1).filter(function(r) { return r; });
+      var projects = own.concat(extras);
+      renderWorkCards(grid, projects.length ? projects : FALLBACK_PROJECTS);
+    })
+    .catch(function() {
+      // Everything failed — show curated fallback instead of an empty grid
+      renderWorkCards(grid, FALLBACK_PROJECTS);
+    });
 };
 
 // init
